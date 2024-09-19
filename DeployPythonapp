@@ -1,0 +1,10 @@
+server {
+    listen 443 ssl;
+    listen 80;
+    server_name deploy.ltda.digital;
+
+location / {
+  include proxy_params;
+  proxy_pass http://unix:/home/ubuntu/DeployPython/app.sock;
+    }
+}
